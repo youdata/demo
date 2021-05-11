@@ -4,9 +4,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Demo</title>
+    <title>Sand Center</title>
     <script src="./lib/sand.js"></script>
-    <link rel="manifest" href="./manifest.json">
     <!-- for drag effect -->
     <link rel="stylesheet" href="./style/font.css" type="text/css" />
     <link rel="stylesheet" href="./style/goldenlayout-base.css" type="text/css" />
@@ -27,23 +26,27 @@
 </head>
 
 <body>
-<div id="loader" style="width:100%;text-align:center;padding-top:50px">
-<img src="./Loading_icon.gif"></img>
 
-</div>
-    <reflexiv-service-worker-bar worker="/demo/sw.js" scope="/demo/"/>
+    <div id="loader" style="width:100%;text-align:center;padding-top:150px">
+        <img src="./img/Loading_icon.gif"></img>
+    </div>
     <div id="container">
     </div>
     <script>
         (function()
         {
             var center = new sand.Center()
-            var layout = "publish"
+            var layout = sand.getUrlPara("layout") || "stone"
+            var publish = sand.getUrlPara("publish")
+            var pkg = sand.getUrlPara("pkg")
+            var session = sand.getUrlPara("session")
+
             center.on("inited", (e) =>
             {
                 var d = center.createLayout(layout)
-                d.session = "./panel.json"
-                d.publish = true
+                if (publish) d.publish = true;
+                if (pkg && layout == "single") d.init = pkg;
+                if (session) d.session = session;
                 document.getElementById("loader").style.display =
                     "none"
                 document.getElementById("container").appendChild(

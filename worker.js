@@ -16,6 +16,32 @@ appChan.onmessage = function(d) {
         }
     }
 }
+/*
+importScripts("./nb-dispatch.min.js")
+// Organize Worker Session Variables
+var chan = nb.dispatch("udpate","brush")
+chan.connect(
+    function(d){
+        appChan.postMessage(d)
+    }
+)
+chan.on("update", function(d){
+    appChan.postMessage(d)
+})
+*/
+// TODO When chan01 onmessage 
+// on connect .... 
+// sort by the time initialized   ...
+//      set main app when first open
+//      connect main app only
+//      if close main app , close all other windows  ....
+//
+//
+//
+//  set the first window main window
+//  other as extend work Space
+//  if main window close 
+//  set set message to close all windows ... 
 onconnect = function(e) {
     var port = e.ports[0];
     appChan.postMessage("worker postmessage from mos channel")
