@@ -1,0 +1,40 @@
+{
+  "name": "@reflexiv/app-demo",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "node --max-old-space-size=2048 node_modules/webpack/bin/webpack.js --mode production -c webpack.config.js",
+    "dev": "webpack --mode development -c webpack.config.js"
+  },
+  "keywords": [],
+  "author": "zhuxp",
+  "license": "GPL",
+  "dependencies": {
+    "@osjs/event-emitter": "^1.0.9",
+    "@reflexiv/base": "file:../base",
+    "@reflexiv/layouts": "file:../layouts",
+    "@reflexiv/pouch-db-store": "file:../pouch-db-store",
+    "@reflexiv/pkg-demo-bridge": "file:../pkg-demo-bridge",
+    "@reflexiv/pkg-demo-dispatch": "file:../pkg-demo-dispatch",
+    "@reflexiv/pkg-demo-state": "file:../../reflexapp/pkg-demo-state",
+    "@reflexiv/pkg-demo-data": "file:../../reflexapp/pkg-demo-data",
+    "@reflexiv/pkg-data-objects": "file:../../reflexiv/pkg-data-objects",
+    "@reflexiv/pkg-demo-drop-box": "file:../pkg-demo-drop-box",
+    "@reflexiv/pkg-demo-simple-render": "file:../pkg-demo-simple-render",
+    "@reflexiv/service-bridge": "file:../service-bridge",
+    "@reflexiv/service-data": "file:../service-data"
+  },
+  "devDependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "@babel/runtime": "^7.14.0",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.0",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.0.0"
+  }
+}
